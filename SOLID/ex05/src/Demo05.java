@@ -1,10 +1,11 @@
 
 public class Demo05 {
-    static int areaAfterResize(Rectangle r){
-        r.setWidth(5); r.setHeight(4); return r.area();
+    // Method that works with any Shape
+    static int getArea(Shape shape) {
+        return shape.getArea();
     }
     public static void main(String[] args) {
-        System.out.println(areaAfterResize(new Rectangle())); // 20
-        System.out.println(areaAfterResize(new Square()));    // 16 (!) violates expectation
+        System.out.println(getArea(new Rectangle(5, 4))); // 20
+        System.out.println(getArea(new Square(5)));    // 16 (!) violates expectation
     }
 }
