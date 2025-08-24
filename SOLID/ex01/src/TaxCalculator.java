@@ -14,12 +14,4 @@ public class TaxCalculator implements ITaxCalculator {
     public double calculateTotalWithTax(double subtotal){
         return subtotal + calculateTax(subtotal);
     }
-
-    public void setTaxRate(double taxRate){
-        this.taxRate = taxRate;
-    }
-
-    public double getTaxRate() {
-        return taxRate;
-    }
 }
