@@ -1,28 +1,36 @@
 package com.example.profiles;
 
-import java.util.Objects;
-
 /**
- * Assembles profiles with scattered, inconsistent validation.
+ * Assembles profiles using Builder pattern with centralized validation.
  */
 public class ProfileService {
 
-    // returns a fully built profile but mutates it afterwards (bug-friendly)
+    // Creates immutable profile using Builder pattern
     public UserProfile createMinimal(String id, String email) {
-        if (id == null || id.isBlank()) throw new IllegalArgumentException("bad id");
-        if (email == null || !email.contains("@")) throw new IllegalArgumentException("bad email");
-
-        UserProfile p = new UserProfile(id, email);
-        // later code keeps mutating...
-        return p;
+        return new UserProfile.Builder(id, email)
+            .build();
     }
 
-    public void updateDisplayName(UserProfile p, String displayName) {
-        Objects.requireNonNull(p, "profile");
-        if (displayName != null && displayName.length() > 100) {
-            // silently trim (inconsistent policy)
-            displayName = displayName.substring(0, 100);
-        }
-        p.setDisplayName(displayName); // mutability leak
+    // Creates profile with display name using Builder
+    public UserProfile createWithDisplayName(String id, String email, String displayName) {
+        return new UserProfile.Builder(id, email)
+            .displayName(displayName)
+            .build();
     }
+
+    // Creates full profile using Builder
+    public UserProfile createFull(String id, String email, String phone, String displayName, 
+                                 String address, boolean marketingOptIn, String twitter, String github) {
+        return new UserProfile.Builder(id, email)
+            .phone(phone)
+            .displayName(displayName)
+            .address(address)
+            .marketingOptIn(marketingOptIn)
+            .twitter(twitter)
+            .github(github)
+            .build();
+    }
+
+    // Note: No more updateDisplayName method because UserProfile is immutable!
+    // If you need to change a profile, you must create a new one.
 }
