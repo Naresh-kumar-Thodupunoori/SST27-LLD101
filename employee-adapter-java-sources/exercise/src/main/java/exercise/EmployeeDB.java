@@ -7,10 +7,25 @@ public final class EmployeeDB {
   private final String emailAddress;
 
   public EmployeeDB(int id, String firstName, String surname, String emailAddress) {
-    this.id = id; this.firstName = firstName; this.surname = surname; this.emailAddress = emailAddress;
+    this.id = id;
+    this.firstName = firstName;
+    this.surname = surname;
+    this.emailAddress = emailAddress;
   }
-  public int getId() { return id; }
-  public String getFirstName() { return firstName; }
-  public String getSurname() { return surname; }
-  public String getEmailAddress() { return emailAddress; }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getSurname() {
+    return surname;
+  }
+
+  public String getEmailAddress() {
+    return emailAddress;
+  }
 }
