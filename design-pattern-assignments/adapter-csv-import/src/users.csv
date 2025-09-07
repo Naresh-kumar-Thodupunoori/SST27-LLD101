@@ -1,0 +1,11 @@
+id,email,displayName
+1,john.doe@example.com,John Doe
+2,jane.smith@example.com,Jane Smith
+3,invalid.email.com,Invalid Email
+4,,No Email
+,missing.id@example.com,Missing ID
+5,alice@example.com,Alice Wonderland
+6,bob@example,Bob NoAt
+7,charlie@example.com,
+8,   ,Whitespace ID
+9,dan@example.com,Dan
